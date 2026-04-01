@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About & Contact — F.K. Photography</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">F.K. Photography</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About &amp; Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu" onclick="openMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-overlay-close" onclick="closeMenu()">&#x2715;</button>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="about.html" onclick="closeMenu()">About &amp; Contact</a>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div class="about-wrap">
+
+      <!-- Left: portrait -->
+      <div class="about-image fade-in">
+        <img src="images/about/portrait.jpeg" alt="F.K. Photography" />
+      </div>
+
+      <!-- Right: text + contact -->
+      <div class="about-text fade-in">
+        <h1>About Me</h1>
+
+        <p>
+          I'm an amateur photographer based in Berlin with a passion for
+          travel photography. I'm drawn to the kinds of places and moments
+          that make you stop — landscapes, streets, quiet interiors, and
+          everything in between.
+        </p>
+        <p>
+          This is a personal collection of images from my travels and
+          everyday life, made purely out of love for the craft.
+        </p>
+        <p>
+          Always happy to connect with fellow photography enthusiasts
+          or anyone who wants to say hello.
+        </p>
+
+        <div class="contact-block">
+          <h2>Contact</h2>
+          <a id="maillink">f.k.photography&#64;outlook&#46;com</a>
+          <br />
+          <a href="https://instagram.com/photos_by_fk" target="_blank" rel="noopener">
+            &#64;photos_by_fk
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a href="https://instagram.com/photos_by_fk" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a id="footermaillink" aria-label="Email">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+      </a>
+    </div>
+    <p>&copy; F.K. Photography 2026 &mdash; All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Set email links via JS so Cloudflare cannot scramble them -->
+  <script>
+    var u = 'f.k.photography';
+    var d = 'outlook.com';
+    var e = u + '@' + d;
+    var m = 'mailto:' + e;
+    var ml = document.getElementById('maillink');
+    if (ml) { ml.href = m; }
+    var fl = document.getElementById('footermaillink');
+    if (fl) { fl.href = m; }
+  </script>
+
+</body>
+</html>

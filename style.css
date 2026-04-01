@@ -1,0 +1,332 @@
+/* =============================================
+   F.K. PHOTOGRAPHY — style.css
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --bg:        #d6cfc4;
+  --fg:        #1a1a1a;
+  --fg-muted:  #888;
+  --accent:    #1a1a1a;
+  --nav-h:     110px;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body:    'Jost', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =============================================
+   NAV
+   ============================================= */
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.2rem 2rem 0.8rem;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--fg);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+/* Mobile toggle — hidden on all sizes, we keep centered nav */
+.nav-toggle {
+  display: none;
+}
+
+/* =============================================
+   MOBILE NAV OVERLAY
+   ============================================= */
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--bg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-overlay.open { display: flex; }
+
+.nav-overlay a {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: 0.06em;
+}
+
+.nav-overlay-close {
+  position: absolute;
+  top: 1.5rem; right: 2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+/* =============================================
+   PAGE WRAPPER
+   ============================================= */
+
+main { padding-top: var(--nav-h); }
+
+/* =============================================
+   HOME — PHOTO GRID
+   ============================================= */
+
+.photo-grid {
+  columns: 3;
+  column-gap: 20px;
+  padding: 3rem 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.photo-grid-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.photo-grid-item img {
+  height: auto;
+  display: block;
+}
+
+/* =============================================
+   ABOUT PAGE
+   ============================================= */
+
+.about-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  cursor: default;
+  pointer-events: none;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h1 {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.contact-block {
+  border-top: 1px solid #ccc;
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
+
+.contact-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+}
+
+.contact-block a {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--fg);
+  padding-bottom: 2px;
+  margin-bottom: 0.8rem;
+  transition: opacity 0.2s;
+}
+
+.contact-block a:hover { opacity: 0.5; }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+footer {
+  padding: 2.5rem 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-icons a {
+  color: var(--fg-muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.footer-icons a:hover { color: var(--fg); }
+
+.footer-icons svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =============================================
+   FADE-IN ON SCROLL
+   ============================================= */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 1100px) {
+  .photo-grid { padding: 2.5rem 3rem; }
+}
+
+@media (max-width: 900px) {
+  .about-wrap {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* Flip order: text first, portrait second on mobile */
+  .about-image { order: 2; aspect-ratio: unset; max-width: 260px; margin: 0 auto; }
+  .about-text  { order: 1; }
+
+  .photo-grid { padding: 2rem; }
+}
+
+@media (max-width: 700px) {
+  .photo-grid {
+    columns: 2;
+    padding: 1.5rem 1rem;
+    column-gap: 12px;
+  }
+  .photo-grid-item { margin-bottom: 12px; }
+
+  /* Keep nav centered, just shrink font slightly */
+  .nav-logo { font-size: 1.4rem; }
+  .nav-links a { font-size: 0.65rem; letter-spacing: 0.14em; }
+  nav { gap: 0.3rem; }
+}
+
+@media (max-width: 420px) {
+  .photo-grid { columns: 1; }
+
+  .nav-logo { font-size: 1.2rem; }
+  .nav-links { gap: 1.5rem; }
+}

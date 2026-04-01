@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F.K. Photography</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">F.K. Photography</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Open menu" onclick="openMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="nav-overlay-close" onclick="closeMenu()">&#x2715;</button>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="about.html" onclick="closeMenu()">About &amp; Contact</a>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div class="photo-grid" id="photoGrid">
+
+      <!--
+        ADDING NEW PHOTOS:
+        1. Name new files manually: photo (20).jpeg, photo (21).jpeg etc.
+        2. Copy one of the blocks below and paste it at the TOP of this list
+        3. Update the number in src to match your new filename
+      -->
+
+      <!-- NEWEST PHOTOS AT TOP -->
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (19).jpeg" alt="Photo 19" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (18).jpeg" alt="Photo 18" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (17).jpeg" alt="Photo 17" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (16).jpeg" alt="Photo 16" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (15).jpeg" alt="Photo 15" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (14).jpeg" alt="Photo 14" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (13).jpeg" alt="Photo 13" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (12).jpeg" alt="Photo 12" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (11).jpeg" alt="Photo 11" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (10).jpeg" alt="Photo 10" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (9).jpeg" alt="Photo 9" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (8).jpeg" alt="Photo 8" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (7).jpeg" alt="Photo 7" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (6).jpeg" alt="Photo 6" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (5).jpeg" alt="Photo 5" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (4).jpeg" alt="Photo 4" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (3).jpeg" alt="Photo 3" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (2).jpeg" alt="Photo 2" loading="lazy" /></div>
+      <div class="photo-grid-item fade-in"><img src="images/home/photo (1).jpeg" alt="Photo 1" loading="lazy" /></div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a href="https://instagram.com/photos_by_fk" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a id="footermaillink" aria-label="Email">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+      </a>
+    </div>
+    <p>&copy; F.K. Photography 2026 &mdash; All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    var u = 'f.k.photography';
+    var d = 'outlook.com';
+    var fl = document.getElementById('footermaillink');
+    if (fl) { fl.href = 'mailto:' + u + '@' + d; }
+  </script>
+
+</body>
+</html>
