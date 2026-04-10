@@ -146,21 +146,23 @@ main { padding-top: var(--nav-h); }
    ============================================= */
 
 .photo-grid {
-  columns: 3;
-  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   padding: 3rem 6rem;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .photo-grid-item {
-  break-inside: avoid;
-  margin-bottom: 20px;
   overflow: hidden;
+  aspect-ratio: 4/5;
 }
 
 .photo-grid-item img {
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -302,31 +304,24 @@ footer {
     gap: 2rem;
     padding: 3rem 1.5rem 5rem;
   }
-
-  /* Flip order: text first, portrait second on mobile */
   .about-image { order: 2; aspect-ratio: unset; max-width: 260px; margin: 0 auto; }
   .about-text  { order: 1; }
-
   .photo-grid { padding: 2rem; }
 }
 
 @media (max-width: 700px) {
   .photo-grid {
-    columns: 2;
+    grid-template-columns: repeat(2, 1fr);
     padding: 1.5rem 1rem;
-    column-gap: 12px;
+    gap: 12px;
   }
-  .photo-grid-item { margin-bottom: 12px; }
-
-  /* Keep nav centered, just shrink font slightly */
   .nav-logo { font-size: 1.4rem; }
   .nav-links a { font-size: 0.65rem; letter-spacing: 0.14em; }
   nav { gap: 0.3rem; }
 }
 
 @media (max-width: 420px) {
-  .photo-grid { columns: 1; }
-
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
   .nav-logo { font-size: 1.2rem; }
   .nav-links { gap: 1.5rem; }
 }
